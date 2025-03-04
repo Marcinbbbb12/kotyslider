@@ -1,31 +1,41 @@
-﻿
-
-namespace kotyslider
+﻿namespace kotyslider
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
+            UpdateSizeLabel(sizeSlider.Value);
         }
 
         void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
         {
             double value = args.NewValue;
 
+            imageToResize.WidthRequest = 200 * value;
+            imageToResize.HeightRequest = 200 * value;
 
-            kot.WidthRequest = 200 * value;
-            kot.HeightRequest = 200 * value;
+            UpdateSizeLabel(value);
         }
 
-
-        private void OnCounterClicked3(object sender, EventArgs e)
+        private void UpdateSizeLabel(double value)
         {
-            string link = "https://cataas.com/cat/says/hello?fontSize=50&fontColor=red";
-
-            kot.Source = link;
+            sizeLabel.Text = $"Rozmiar: {value:F2}";
         }
 
+        private void ResetSlider()
+        {
+            sizeSlider.Value = 0.5; 
+            UpdateSizeLabel(sizeSlider.Value); 
+        }
+        private void OnSliderValueChanged2(object sender, ValueChangedEventArgs e)
+        {
+            this.BackgroundColor = e.NewValue == 0 ? Colors.White : Colors.Black;
+        }
 
+        private void OnResetButtonClicked(object sender, EventArgs e)
+        {
+            ResetSlider();
+        }
     }
 }
