@@ -7,41 +7,31 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Image
-                x:Name="kot"
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
 
-            <Label x:Name="displayLabel" 
-                   FontSize="20" 
+            <Image
+                x:Name="imageToResize"
+                Source="https://media.istockphoto.com/id/120492078/photo/banana.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=Xlkb122txfxnF8s7rZGxCZnSX4Qe4ZabXrPCFOG-lIc="
+                HeightRequest="200"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Obraz do zmiany rozmiaru" />
+
+            <Label x:Name="sizeLabel"
+                   FontSize="20"
                    HorizontalOptions="Center" />
 
-
+            <Slider x:Name="sizeSlider"
+                    Minimum="0.5"
+                    Maximum="3.0"
+                    Value="1.0"
+                    ValueChanged="OnSliderValueChanged"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,20,0,0" />
 
             <Button
-                x:Name="CounterBtn3"
-                Text="kot mowiacy hello" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked3"
-                HorizontalOptions="Fill" />
-
-
-
-            <Entry x:Name="input" Placeholder="Wprowadź tekst" />
-
-            <Slider x:Name="scaleSlider"
-                Minimum="0.5" 
-                Maximum="3.0" 
-                Value="1.0"
-                ValueChanged="OnSliderValueChanged"
-                HorizontalOptions="FillAndExpand" 
-                Margin="0,20,0,0" />
+                x:Name="ResetSliderButton"
+                Clicked="OnResetButtonClicked"
+                Text="zresetuj wartosc suwaka"/>
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
-
-
-
